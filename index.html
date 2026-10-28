@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>SHC | مركز الشامل — PS4 Host</title>
+<style>
+:root{color-scheme:dark;--bg:#090909;--panel:#141414;--line:#303030;--muted:#a7a7a7;--white:#f7f7f7;--accent:#e8e8e8}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#202020 0,#090909 55%);color:var(--white);font-family:Tahoma,Arial,sans-serif;min-height:100vh}
+.wrap{width:min(100% - 28px,980px);margin:auto;padding:28px 0 44px}
+header{display:flex;align-items:center;gap:15px;padding:16px 0 24px;border-bottom:1px solid var(--line)}
+.logo{width:68px;height:68px;border:2px solid #f5f5f5;background:#f5f5f5;color:#080808;border-radius:14px;display:grid;place-items:center;font-weight:900;font-size:23px;letter-spacing:-1px;flex:none}
+h1{font-size:clamp(22px,4vw,34px);margin:0 0 6px} .sub{color:var(--muted);font-size:13px;letter-spacing:.5px}
+.pill{display:inline-block;border:1px solid #505050;border-radius:99px;padding:6px 10px;font-size:12px;color:#ddd;margin-top:10px}
+.hero{padding:25px 0 18px}.hero h2{font-size:23px;margin:0 0 9px}.hero p{color:#c2c2c2;line-height:1.8;margin:0;max-width:720px}
+.panel{background:rgba(20,20,20,.94);border:1px solid var(--line);border-radius:18px;padding:20px;margin-top:18px;box-shadow:0 12px 40px #0005}
+label{display:block;margin-bottom:10px;font-weight:700}select{width:100%;padding:14px;border:1px solid #555;background:#080808;color:white;border-radius:10px;font-size:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-top:14px}
+.fw{background:#101010;border:1px solid #393939;border-radius:12px;padding:14px;text-align:center;cursor:pointer;color:#eee;font-size:15px;transition:.15s}
+.fw:hover,.fw.active{border-color:#eee;background:#252525;transform:translateY(-1px)}
+.status{border-right:3px solid #aaa;padding:12px 14px;background:#0d0d0d;border-radius:8px;line-height:1.8;color:#ddd;margin-top:15px}
+.status strong{color:#fff}.small{font-size:12px;color:var(--muted);line-height:1.8}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{border:1px solid #eee;border-radius:10px;background:#f1f1f1;color:#090909;padding:12px 16px;font-weight:700;text-decoration:none;display:inline-block;cursor:pointer}.btn.secondary{background:transparent;color:#eee;border-color:#555}
+footer{border-top:1px solid var(--line);margin-top:26px;padding-top:18px;color:#888;font-size:12px;line-height:1.8}
+a{color:#fff} .hidden{display:none}
+@media(max-width:520px){.wrap{width:min(100% - 20px,980px);padding-top:16px}.panel{padding:15px}.logo{width:58px;height:58px;font-size:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo" aria-label="SHC">SHC</div>
+  <div>
+    <h1>مركز الشامل</h1>
+    <div class="sub">SHC · PLAYSTATION 4 HOST</div>
+    <span class="pill">واجهة تجريبية — إصدار أولي</span>
+  </div>
+</header>
+<section class="hero">
+  <h2>هوست بلايستيشن 4</h2>
+  <p>اختر إصدار نظام جهازك لعرض ملاحظات التوافق. هذه واجهة تعريفية من SHC؛ لا تشغّل استغلالاً أو تحمّل GoldHEN تلقائياً حتى تتم إضافة ملفات موثوقة ومختبرة لكل إصدار.</p>
+</section>
+<section class="panel">
+  <label for="firmware">اختر إصدار النظام (Firmware)</label>
+  <select id="firmware">
+    <option value="">— اختر الإصدار —</option>
+    <option>5.05</option><option>6.72</option><option>7.00</option><option>7.02</option><option>7.50</option><option>7.51</option><option>7.55</option><option>8.00</option><option>8.01</option><option>8.03</option><option>8.50</option><option>8.52</option><option>9.00</option><option>9.03</option><option>9.04</option><option>9.50</option><option>9.51</option><option>9.60</option><option>10.00</option><option>10.01</option><option>10.50</option><option>10.70</option><option>10.71</option><option>11.00</option><option>11.02</option><option>11.50</option><option>11.52</option><option>12.00</option><option>12.02</option><option>12.50</option><option>12.52</option><option>13.00</option><option>13.02</option><option>13.04</option><option>13.50</option><option>13.52</option>
+  </select>
+  <div class="grid" id="quick">
+    <button class="fw" data-fw="5.05">5.05</button><button class="fw" data-fw="6.72">6.72</button>
+    <button class="fw" data-fw="9.00">9.00</button><button class="fw" data-fw="11.00">11.00</button>
+    <button class="fw" data-fw="12.02">12.02</button><button class="fw" data-fw="13.52">13.52</button>
+  </div>
+  <div class="status" id="status" aria-live="polite"><strong>جاهز للاختيار.</strong><br>حدد إصدار جهازك لعرض التنبيه المناسب.</div>
+  <div class="actions">
+    <a class="btn" href="https://github.com/SHCP4/-SHC-PS4-Host" target="_blank" rel="noopener">مستودع SHC على GitHub</a>
+    <a class="btn secondary" href="https://github.com/GoldHEN/GoldHEN" target="_blank" rel="noopener">مصدر GoldHEN الرسمي</a>
+  </div>
+  <p class="small">تنبيه: لا تحدّث نظام جهازك بهدف تجربة الاستغلال قبل التأكد من التوافق. لا تدخل بيانات حساب PlayStation في صفحات استغلال مجهولة.</p>
+</section>
+<footer>
+  <strong>SHC — مركز الشامل</strong><br>
+  منذر لحموني<br>
+  أعزاز — مقابل المركز الثقافي<br>
+  رقم الهاتف: <span dir="ltr">0992023632</span><br><br>
+  <span class="small">واجهة مستقلة غير رسمية. ليست تابعة لشركة Sony Interactive Entertainment. توافق الإصدارات وملفات الاستغلال يجب التحقق منهما قبل نشر أزرار تشغيل فعلية.</span>
+</footer>
+</div>
+<script>
+const select=document.getElementById('firmware');
+const statusBox=document.getElementById('status');
+const buttons=[...document.querySelectorAll('[data-fw]')];
+function update(fw){
+  select.value=fw;
+  buttons.forEach(b=>b.classList.toggle('active',b.dataset.fw===fw));
+  if(!fw){statusBox.innerHTML='<strong>جاهز للاختيار.</strong><br>حدد إصدار جهازك لعرض التنبيه المناسب.';return;}
+  let note='تحقق من وجود طريقة استغلال وملفات GoldHEN متوافقة مع هذا الإصدار قبل المتابعة.';
+  if(['5.05','6.72','7.00','7.02','7.50','7.51','7.55','8.00','8.01','8.03','8.50','8.52','9.00','9.03','9.04','9.50','9.51','9.60','10.00','10.01','10.50','10.70','10.71','11.00','11.02'].includes(fw)){
+    note='هذا الإصدار يقع ضمن نطاقات تتوفر لها طرق استغلال معروفة بدرجات مختلفة. يلزم تحديد الطريقة والملفات المتوافقة بدقة؛ لم يتم تشغيل أي استغلال من هذه الواجهة.';
+  } else {
+    note='لا تعتبر هذا الإصدار مدعوماً لمجرد ظهوره في القائمة. تحقّق من وجود استغلال موثوق ومختبر لهذا الإصدار تحديداً قبل إضافة خيار تشغيل.';
+  }
+  statusBox.innerHTML='<strong>إصدار النظام: '+fw+'</strong><br>'+note;
+}
+select.addEventListener('change',()=>update(select.value));
+buttons.forEach(b=>b.addEventListener('click',()=>update(b.dataset.fw)));
+</script>
+</body>
+</html>
